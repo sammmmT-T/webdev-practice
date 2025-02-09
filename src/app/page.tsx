@@ -38,7 +38,7 @@ export default function LandingPage() {
             whileHover={{ scale: 1.15 }}
             transition={{ type: "spring", stiffness: 200, damping: 10 }}
             className="flex flex-col items-center cursor-pointer group"
-            onClick={() => router.push(icon.path)} // Navigate to profile page
+            onClick={() => router.push(icon.path)}
           >
             {/* Icon Image */}
             <div className="w-32 h-32 bg-gray-800 rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-300 overflow-hidden relative">
