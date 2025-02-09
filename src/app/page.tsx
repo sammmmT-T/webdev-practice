@@ -1,15 +1,18 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const icons = [
-  { id: 1, name: "Profile 1", src: "/assets/cat.jpg" },
-  { id: 2, name: "Profile 2", src: "/assets/capybara.jpg" },
-  { id: 3, name: "Profile 3", src: "/assets/dog.jpeg" },
-  { id: 4, name: "Profile 4", src: "/assets/penguin.jpeg" },
+  { id: 1, name: "Cat", src: "/assets/cat.jpg", path: "/cat" },
+  { id: 2, name: "Capybara", src: "/assets/capybara.jpg", path: "/capybara" },
+  { id: 3, name: "Dog", src: "/assets/dog.jpeg", path: "/dog" },
+  { id: 4, name: "Penguin", src: "/assets/penguin.jpeg", path: "/penguin" },
 ];
 
 export default function LandingPage() {
+  const router = useRouter(); // Next.js router
+
   return (
     <div className="h-screen flex flex-col justify-center items-center bg-gray-900 text-white">
       {/* Title */}
@@ -32,19 +35,18 @@ export default function LandingPage() {
         {icons.map((icon) => (
           <motion.div
             key={icon.id}
-            whileHover={{
-              scale: 1.15,
-            }}
+            whileHover={{ scale: 1.15 }}
             transition={{ type: "spring", stiffness: 200, damping: 10 }}
             className="flex flex-col items-center cursor-pointer group"
+            onClick={() => router.push(icon.path)} // Navigate to profile page
           >
             {/* Icon Image */}
             <div className="w-32 h-32 bg-gray-800 rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-300 overflow-hidden relative">
               <Image
                 src={icon.src}
                 alt={icon.name}
-                layout="fill" // Fills the container
-                objectFit="cover" // Ensures it covers the container properly
+                layout="fill" // Make image take full size of container
+                objectFit="cover" // Cover container completely
               />
             </div>
 
