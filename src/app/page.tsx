@@ -45,8 +45,8 @@ export default function LandingPage() {
               <Image
                 src={icon.src}
                 alt={icon.name}
-                layout="fill" // Make image take full size of container
-                objectFit="cover" // Cover container completely
+                layout="fill"
+                objectFit="cover"
               />
             </div>
 
